@@ -62,11 +62,22 @@ table(reduceGeniuses);
   table(de);  */
 
   // 7. sort Exercise
-  // Sort the people alphabetically by last name
-  const alphaSort = persons.sort((a,b)=>{a >b?1:-1}
+  // Sort the persons alphabetically by last name
+  const alphaSort = persons.sort((a,b)=>{
+    const [aLast, aFirst] = a.split(', '); // also worked without splitting
+    const [bLast, bFirst] = b.split(', '); // also worked without splitting
+    return a>b?1:-1}
   );
   table(alphaSort);
 
   // 8. Reduce Exercise
   // Sum up the instances of each of these
   const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+  const mobileMeans = data.reduce((obj,item)=>{
+    if(!obj[item]){
+    obj[item]=0;
+    }
+    obj[item]++;
+    return obj;
+  }, {});
+ console.log(mobileMeans);
